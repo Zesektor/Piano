@@ -3,14 +3,21 @@
 namespace Piano
 {
     public enum Note { C = 1, D = 2, E = 3, F = 4, G = 5, A = 6, B = 7 }
+
     public enum Accidental { NoAlt = 0, Sharp = 1, Flat = -1 }
+
     public enum Octave { SubCountr = 2, Countr = 9, Big = 16, Small = 23, First = 30, Second = 37, Third = 44, Fourth = 51, Fifth = 58 }
+
     public struct Key : IComparable<Key>
     {
         public Note Note { get; set; }
+
         public Accidental Accidental { get; set; }
+
         public Octave Octave { get; set; }
+
         private double numberOfKey;
+
         public Key(Note note, Accidental accidental, Octave octave)
         {
             Note = note;
@@ -18,6 +25,7 @@ namespace Piano
             Accidental = accidental;
             numberOfKey = (int)Octave - (int)Note - (0.5 * (int)Accidental);
         }
+
         public override string ToString()
         {
             var alt = string.Empty;
